@@ -14,6 +14,7 @@
 	export let todo: Todo;
 	export let remove: () => void;
 	export let mark: () => void;
+	export let save: () => void;
 </script>
 
 <div class="card {todo.isDone ? 'bg-green-100' : 'bg-yellow-50'} mb-2 shadow-xl" in:fade out:fade>
@@ -26,6 +27,6 @@
 				<DeleteButton {remove} />
 			</div>
 		</div>
-		<Textarea bind:checked={todo.isDone} bind:description={todo.description} />
+		<Textarea bind:checked={todo.isDone} bind:description={todo.description} {save} />
 	</div>
 </div>

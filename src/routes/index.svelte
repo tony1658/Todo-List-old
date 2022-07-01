@@ -83,13 +83,13 @@
 		<div>
 			<Header title="Todo" />
 			{#each todoList.filter((t) => !t.isDone) as todo (todo.id)}
-				<Card {todo} remove={() => remove(todo)} mark={() => mark(todo, true)} />
+				<Card {todo} {save} remove={() => remove(todo)} mark={() => mark(todo, true)} />
 			{/each}
 		</div>
 		<div>
 			<Header title="Done" />
 			{#each todoList.filter((t) => t.isDone) as todo (todo.id)}
-				<Card {todo} remove={() => remove(todo)} mark={() => mark(todo, false)} />
+				<Card {todo} {save} remove={() => remove(todo)} mark={() => mark(todo, false)} />
 			{/each}
 		</div>
 	</div>
