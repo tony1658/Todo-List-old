@@ -7,6 +7,7 @@
 
 <div class="input-group">
 	<input
+		aria-label="Todo input"
 		placeholder="Todo..."
 		class="input input-bordered w-80"
 		on:keyup={(e) => e.key === 'Enter' && add()}

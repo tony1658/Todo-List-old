@@ -4,8 +4,10 @@
 	export let save: () => void;
 </script>
 
-{#if checked}
-	<textarea class="textarea line-through" disabled bind:value={description} />
-{:else}
-	<textarea class="textarea" bind:value={description} on:change={save} />
-{/if}
+<textarea
+	aria-label="Todo description"
+	class="textarea {checked ? 'line-through' : ''}"
+	disabled={checked}
+	bind:value={description}
+	on:change={save}
+/>

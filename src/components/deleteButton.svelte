@@ -3,6 +3,7 @@
 </script>
 
 <button
+	aria-label="Delete todo button"
 	class="btn btn-outline btn-circle btn-sm flex items-center justify-center bg-white text-red-500 hover:bg-red-500"
 	on:click={remove}
 >
