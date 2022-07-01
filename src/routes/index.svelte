@@ -84,7 +84,7 @@
 		<Input {add} bind:description />
 		<SaveButton on:click={add} />
 	</InputGroup>
-	<div class="grid grid-cols-1 gap-3 px-2 md:grid-cols-2">
+	<Divider>
 		<div>
 			<Header title="Todo" />
 			{#each todoList.filter((t) => !t.isDone) as todo (todo.id)}
@@ -97,5 +97,5 @@
 				<Card {todo} {save} remove={() => remove(todo)} mark={() => mark(todo, false)} />
 			{/each}
 		</div>
-	</div>
+	</Divider>
 </Container>
