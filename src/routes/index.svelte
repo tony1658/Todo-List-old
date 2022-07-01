@@ -4,16 +4,13 @@
 	import type { Todo } from '../models/todo';
 
 	import Card from '../components/card.svelte';
-	import Checkbox from '../components/checkbox.svelte';
 	import Container from '../components/container.svelte';
-	import DeleteButton from '../components/deleteButton.svelte';
 	import Divider from '../components/divider.svelte';
 	import Header from '../components/header.svelte';
 	import Input from '../components/input.svelte';
 	import InputGroup from '../components/inputGroup.svelte';
 	import NavBar from '../components/navbar.svelte';
 	import SaveButton from '../components/saveButton.svelte';
-	import Textarea from '../components/textarea.svelte';
 
 	let todoList: Todo[] = [];
 	let id = 0;
@@ -87,35 +84,13 @@
 		<div>
 			<Header title="Todo" />
 			{#each todoList.filter((t) => !t.isDone) as todo (todo.id)}
-				<Card {todo}>
-					<Checkbox bind:checked={todo.isDone} on:change={() => mark(todo, true)} slot="checkbox" />
-					<DeleteButton on:click={() => remove(todo)} slot="deleteButton" />
-					<Textarea
-						bind:checked={todo.isDone}
-						bind:description={todo.description}
-						on:change={save}
-						slot="textarea"
-					/>
-				</Card>
+				<Card {todo} {save} remove={() => remove(todo)} mark={() => mark(todo, false)} />
 			{/each}
 		</div>
 		<div>
 			<Header title="Done" />
 			{#each todoList.filter((t) => t.isDone) as todo (todo.id)}
-				<Card {todo}>
-					<Checkbox
-						bind:checked={todo.isDone}
-						on:change={() => mark(todo, false)}
-						slot="checkbox"
-					/>
-					<DeleteButton on:click={() => remove(todo)} slot="deleteButton" />
-					<Textarea
-						bind:checked={todo.isDone}
-						bind:description={todo.description}
-						on:change={save}
-						slot="textarea"
-					/>
-				</Card>
+				<Card {todo} {save} remove={() => remove(todo)} mark={() => mark(todo, false)} />
 			{/each}
 		</div>
 	</Divider>
