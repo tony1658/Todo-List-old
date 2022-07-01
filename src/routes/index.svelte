@@ -1,9 +1,12 @@
 <script lang="ts">
-	import NavBar from '../components/navbar.svelte';
+	import { onMount, onDestroy } from 'svelte';
+	import { browser } from '$app/env';
+
 	import Card from '../components/card.svelte';
 	import Container from '../components/container.svelte';
 	import Header from '../components/header.svelte';
 	import InputGroup from '../components/inputGroup.svelte';
+	import NavBar from '../components/navbar.svelte';
 
 	interface Todo {
 		id: Number;
@@ -15,6 +18,30 @@
 	let id = 0;
 	let description: string = '';
 
+	onMount(() => {
+		if (!browser) {
+			return;
+		}
+		const savedTodoList = localStorage.getItem('todoList');
+		todoList = savedTodoList !== null ? JSON.parse(savedTodoList) : [];
+	});
+
+	onDestroy(() => {
+		if (!browser) {
+			return;
+		}
+		if (localStorage.getItem('todoList') === null) {
+			localStorage.removeItem('todoList');
+		}
+	});
+
+	function save() {
+		if (!browser) {
+			return;
+		}
+		localStorage.setItem('todoList', JSON.stringify(todoList));
+	}
+
 	function add() {
 		if (description || description.length > 0) {
 			const todo: Todo = {
@@ -24,12 +51,14 @@
 			};
 
 			todoList = [...todoList, todo];
+			save();
 			description = '';
 		}
 	}
 
 	function remove(todo: Todo) {
 		todoList = todoList.filter((t) => t !== todo);
+		save();
 	}
 
 	function mark(todo: Todo, isDone: boolean) {
@@ -37,6 +66,7 @@
 		todo.description = todo.description;
 		remove(todo);
 		todoList = todoList.concat(todo);
+		save();
 	}
 </script>
 
