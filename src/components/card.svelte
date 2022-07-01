@@ -2,7 +2,7 @@
 	import { fade } from 'svelte/transition';
 
 	import type { Todo } from '../models/todo';
-	
+
 	import Checkbox from './checkbox.svelte';
 	import Textarea from './textarea.svelte';
 	import DeleteButton from './deleteButton.svelte';
