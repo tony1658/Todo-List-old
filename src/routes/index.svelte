@@ -9,14 +9,14 @@
 	import NavBar from '../components/navbar.svelte';
 
 	interface Todo {
-		id: Number;
+		id: number;
 		isDone: boolean;
 		description: string;
 	}
 
 	let todoList: Todo[] = [];
 	let id = 0;
-	let description: string = '';
+	let description = '';
 
 	onMount(() => {
 		if (!browser) {
@@ -63,7 +63,6 @@
 
 	function mark(todo: Todo, isDone: boolean) {
 		todo.isDone = isDone;
-		todo.description = todo.description;
 		remove(todo);
 		todoList = todoList.concat(todo);
 		save();

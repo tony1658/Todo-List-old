@@ -6,7 +6,7 @@
 	import DeleteButton from './deleteButton.svelte';
 
 	interface Todo {
-		id: Number;
+		id: number;
 		isDone: boolean;
 		description: string;
 	}
