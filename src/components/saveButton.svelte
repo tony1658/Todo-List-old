@@ -1,11 +1,7 @@
-<script lang="ts">
-	export let add: () => void;
-</script>
-
 <button
 	aria-label="Save todo button"
 	class="btn btn-square flex items-center justify-center"
-	on:click={add}
+	on:click
 >
 	<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
 		<path

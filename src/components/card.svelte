@@ -21,12 +21,12 @@
 	<div class="card-body">
 		<div class="grid grid-cols-6">
 			<div class="col-end2 col-start-1 flex items-center ">
-				<Checkbox bind:checked={todo.isDone} {mark} />
+				<Checkbox bind:checked={todo.isDone} on:change={mark} />
 			</div>
 			<div class="col-span-1 col-end-7 ml-1">
-				<DeleteButton {remove} />
+				<DeleteButton on:click={remove} />
 			</div>
 		</div>
-		<Textarea bind:checked={todo.isDone} bind:description={todo.description} {save} />
+		<Textarea bind:checked={todo.isDone} bind:description={todo.description} on:change={save} />
 	</div>
 </div>

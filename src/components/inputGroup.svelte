@@ -13,5 +13,5 @@
 		on:keyup={(e) => e.key === 'Enter' && add()}
 		bind:value={description}
 	/>
-	<SaveButton {add} />
+	<SaveButton on:click={add} />
 </div>
