@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
 	import { browser } from '$app/env';
+	import type { Todo } from '../models/todo';
 
 	import Card from '../components/card.svelte';
 	import Checkbox from '../components/checkbox.svelte';
@@ -13,12 +14,6 @@
 	import NavBar from '../components/navbar.svelte';
 	import SaveButton from '../components/saveButton.svelte';
 	import Textarea from '../components/textarea.svelte';
-
-	interface Todo {
-		id: number;
-		isDone: boolean;
-		description: string;
-	}
 
 	let todoList: Todo[] = [];
 	let id = 0;

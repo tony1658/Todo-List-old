@@ -1,11 +1,8 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
 
-	interface Todo {
-		id: number;
-		isDone: boolean;
-		description: string;
-	}
+	import type { Todo } from '../models/todo';
+
 	export let todo: Todo;
 </script>
 
