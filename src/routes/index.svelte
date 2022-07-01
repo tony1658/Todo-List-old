@@ -5,8 +5,10 @@
 	import Card from '../components/card.svelte';
 	import Container from '../components/container.svelte';
 	import Header from '../components/header.svelte';
+	import Input from '../components/input.svelte';
 	import InputGroup from '../components/inputGroup.svelte';
 	import NavBar from '../components/navbar.svelte';
+	import SaveButton from '../components/saveButton.svelte';
 
 	interface Todo {
 		id: number;
@@ -78,7 +80,10 @@
 
 <NavBar />
 <Container>
-	<InputGroup {add} bind:description />
+	<InputGroup>
+		<Input {add} bind:description />
+		<SaveButton on:click={add} />
+	</InputGroup>
 	<div class="grid grid-cols-1 gap-3 px-2 md:grid-cols-2">
 		<div>
 			<Header title="Todo" />
