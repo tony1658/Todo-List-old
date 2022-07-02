@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount, onDestroy } from 'svelte';
+	import { onMount, onDestroy, setContext } from 'svelte';
 	import { browser } from '$app/env';
 	import type { Todo } from '../models/todo';
 
@@ -65,6 +65,10 @@
 		todoList = todoList.concat(todo);
 		save();
 	}
+
+	setContext('save', save);
+	setContext('remove', remove);
+	setContext('mark', mark);
 </script>
 
 <svelte:head>
@@ -84,13 +88,13 @@
 		<div>
 			<Header title="Todo" />
 			{#each todoList.filter((t) => !t.isDone) as todo (todo.id)}
-				<Card {todo} {save} remove={() => remove(todo)} mark={() => mark(todo, true)} />
+				<Card {todo} />
 			{/each}
 		</div>
 		<div>
 			<Header title="Done" />
 			{#each todoList.filter((t) => t.isDone) as todo (todo.id)}
-				<Card {todo} {save} remove={() => remove(todo)} mark={() => mark(todo, false)} />
+				<Card {todo} />
 			{/each}
 		</div>
 	</Divider>
