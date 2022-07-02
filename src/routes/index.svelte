@@ -78,11 +78,11 @@
 </svelte:head>
 
 <NavBar />
+<InputGroup>
+	<Input {add} bind:description />
+	<SaveButton on:click={add} />
+</InputGroup>
 <Container>
-	<InputGroup>
-		<Input {add} bind:description />
-		<SaveButton on:click={add} />
-	</InputGroup>
 	<Divider>
 		<div>
 			<Header title="Todo" />
