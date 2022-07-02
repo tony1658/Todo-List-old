@@ -13,7 +13,6 @@
 	import SaveButton from '../components/saveButton.svelte';
 
 	let todoList: Todo[] = [];
-	let id = 0;
 	let description = '';
 
 	onMount(() => {
@@ -43,7 +42,7 @@
 	function add() {
 		if (description || description.length > 0) {
 			const todo: Todo = {
-				id: id++,
+				uuid: crypto.randomUUID(),
 				isDone: false,
 				description: description
 			};
@@ -87,13 +86,13 @@
 	<Divider>
 		<div>
 			<Header title="Todo" />
-			{#each todoList.filter((t) => !t.isDone) as todo (todo.id)}
+			{#each todoList.filter((t) => !t.isDone) as todo (todo.uuid)}
 				<Card {todo} />
 			{/each}
 		</div>
 		<div>
 			<Header title="Done" />
-			{#each todoList.filter((t) => t.isDone) as todo (todo.id)}
+			{#each todoList.filter((t) => t.isDone) as todo (todo.uuid)}
 				<Card {todo} />
 			{/each}
 		</div>
