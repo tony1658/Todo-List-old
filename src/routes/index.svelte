@@ -10,6 +10,7 @@
 	import Input from '../components/input.svelte';
 	import InputGroup from '../components/inputGroup.svelte';
 	import SaveButton from '../components/saveButton.svelte';
+	import PageContainer from '../components/pageContainer.svelte';
 
 	let todoList: Todo[] = [];
 	let description = '';
@@ -76,6 +77,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 </svelte:head>
 
+<PageContainer>
 	<h5 class="flex justify-center py-4 text-4xl">Todo List</h5>
 	<InputGroup>
 		<Input {add} bind:description />
@@ -97,3 +99,4 @@
 			</div>
 		</Divider>
 	</CardContainer>
+</PageContainer>
