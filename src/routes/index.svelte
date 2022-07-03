@@ -9,7 +9,6 @@
 	import Header from '../components/header.svelte';
 	import Input from '../components/input.svelte';
 	import InputGroup from '../components/inputGroup.svelte';
-	import NavBar from '../components/navbar.svelte';
 	import SaveButton from '../components/saveButton.svelte';
 
 	let todoList: Todo[] = [];
@@ -77,11 +76,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 </svelte:head>
 
-<NavBar />
-<InputGroup>
-	<Input {add} bind:description />
-	<SaveButton on:click={add} />
-</InputGroup>
+	<h5 class="flex justify-center py-4 text-4xl">Todo List</h5>
+	<InputGroup>
+		<Input {add} bind:description />
+		<SaveButton on:click={add} />
+	</InputGroup>
 	<CardContainer>
 		<Divider>
 			<div class="w-64">
