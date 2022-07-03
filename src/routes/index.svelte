@@ -6,7 +6,7 @@
 	import Card from '../components/card.svelte';
 	import CardContainer from '../components/cardContainer.svelte';
 	import Divider from '../components/divider.svelte';
-	import Header from '../components/header.svelte';
+	import Title from '../components/title.svelte';
 	import Input from '../components/input.svelte';
 	import InputGroup from '../components/inputGroup.svelte';
 	import SaveButton from '../components/saveButton.svelte';
@@ -78,7 +78,7 @@
 </svelte:head>
 
 <PageContainer>
-	<h5 class="flex justify-center py-4 text-4xl">Todo List</h5>
+	<Title title="Todo List" isPageTitle={true} />
 	<InputGroup>
 		<Input {add} bind:description />
 		<SaveButton on:click={add} />
@@ -86,13 +86,13 @@
 	<CardContainer>
 		<Divider>
 			<div class="w-64">
-				<Header title="Todo" />
+				<Title title="Todo" />
 				{#each todoList.filter((t) => !t.isDone) as todo (todo.uuid)}
 					<Card {todo} />
 				{/each}
 			</div>
 			<div class="w-64">
-				<Header title="Done" />
+				<Title title="Done" />
 				{#each todoList.filter((t) => t.isDone) as todo (todo.uuid)}
 					<Card {todo} />
 				{/each}
