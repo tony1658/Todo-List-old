@@ -4,7 +4,7 @@
 	import type { Todo } from '../models/todo';
 
 	import Card from '../components/card.svelte';
-	import Container from '../components/container.svelte';
+	import CardContainer from '../components/cardContainer.svelte';
 	import Divider from '../components/divider.svelte';
 	import Header from '../components/header.svelte';
 	import Input from '../components/input.svelte';
@@ -82,19 +82,19 @@
 	<Input {add} bind:description />
 	<SaveButton on:click={add} />
 </InputGroup>
-<Container>
-	<Divider>
-		<div class="w-64">
-			<Header title="Todo" />
-			{#each todoList.filter((t) => !t.isDone) as todo (todo.uuid)}
-				<Card {todo} />
-			{/each}
-		</div>
-		<div class="w-64">
-			<Header title="Done" />
-			{#each todoList.filter((t) => t.isDone) as todo (todo.uuid)}
-				<Card {todo} />
-			{/each}
-		</div>
-	</Divider>
-</Container>
+	<CardContainer>
+		<Divider>
+			<div class="w-64">
+				<Header title="Todo" />
+				{#each todoList.filter((t) => !t.isDone) as todo (todo.uuid)}
+					<Card {todo} />
+				{/each}
+			</div>
+			<div class="w-64">
+				<Header title="Done" />
+				{#each todoList.filter((t) => t.isDone) as todo (todo.uuid)}
+					<Card {todo} />
+				{/each}
+			</div>
+		</Divider>
+	</CardContainer>
