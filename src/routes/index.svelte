@@ -84,13 +84,13 @@
 </InputGroup>
 <Container>
 	<Divider>
-		<div>
+		<div class="w-64">
 			<Header title="Todo" />
 			{#each todoList.filter((t) => !t.isDone) as todo (todo.uuid)}
 				<Card {todo} />
 			{/each}
 		</div>
-		<div>
+		<div class="w-64">
 			<Header title="Done" />
 			{#each todoList.filter((t) => t.isDone) as todo (todo.uuid)}
 				<Card {todo} />
