@@ -1,9 +1,9 @@
 <button
 	aria-label="Save todo button"
-	class="btn btn-square flex items-center justify-center"
+	class="btn btn-outline bg-gray-600 text-white hover:bg-gray-700"
 	on:click
 >
-	<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+	<svg class="h-5 w-5 fill-current" viewBox="0 0 20 20">
 		<path
 			fill-rule="evenodd"
 			d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
