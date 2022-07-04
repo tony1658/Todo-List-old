@@ -1,3 +1,3 @@
-<div class="input-group justify-center py-1">
+<div class="input-group justify-center p-2">
 	<slot />
 </div>
