@@ -1,3 +1,3 @@
-<div class="grid items-center justify-center">
+<div class="center">
 	<slot />
 </div>
