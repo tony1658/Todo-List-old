@@ -3,4 +3,4 @@
 	export let isPageTitle: boolean = false;
 </script>
 
-<h1 class="py-4 text-center px-40 {isPageTitle ? 'text-4xl' : 'text-2xl'}">{title}</h1>
+<h1 class="py-4 px-40 text-center {isPageTitle ? 'text-4xl' : 'text-2xl'}">{title}</h1>

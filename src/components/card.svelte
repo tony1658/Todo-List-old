@@ -12,13 +12,13 @@
 	const remove: (todo: Todo) => void = getContext('remove');
 </script>
 
-<div class="card {todo.isDone ? 'bg-green-100' : 'bg-yellow-100'} mb-2 shadow-xl w-96">
+<div class="card {todo.isDone ? 'bg-green-100' : 'bg-yellow-100'} mb-2 w-96 shadow-xl">
 	<div class="card-body">
 		<div class="grid grid-cols-6">
-			<div class="col-end2 col-start-1 center">
+			<div class="col-end2 center col-start-1">
 				<Checkbox bind:checked={todo.isDone} on:change={() => mark(todo, todo.isDone)} />
 			</div>
-			<div class="col-span-1 col-end-7 center">
+			<div class="center col-span-1 col-end-7">
 				<DeleteButton on:click={() => remove(todo)} />
 			</div>
 		</div>

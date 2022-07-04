@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 @layer components {
-
-    .center {
-        @apply grid items-center justify-center;
-    }
+	.center {
+		@apply grid items-center justify-center;
+	}
 }
