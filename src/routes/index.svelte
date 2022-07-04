@@ -1,6 +1,10 @@
 <script lang="ts">
 	import { onMount, onDestroy, setContext } from 'svelte';
+	import { quintOut } from 'svelte/easing';
+	import { flip } from 'svelte/animate';
+	import { crossfade } from 'svelte/transition';
 	import { browser } from '$app/env';
+
 	import type { Todo } from '../models/todo';
 
 	import Card from '../components/card.svelte';
@@ -29,6 +33,24 @@
 		}
 		if (localStorage.getItem('todoList') === null) {
 			localStorage.removeItem('todoList');
+		}
+	});
+
+	const [send, receive] = crossfade({
+		duration: (d) => Math.sqrt(d * 200),
+
+		fallback(node) {
+			const style = getComputedStyle(node);
+			const transform = style.transform === 'none' ? '' : style.transform;
+
+			return {
+				duration: 600,
+				easing: quintOut,
+				css: (t) => `
+					transform: ${transform} scale(${t});
+					opacity: ${t}
+				`
+			};
 		}
 	});
 
@@ -85,16 +107,20 @@
 	</InputGroup>
 	<CardContainer>
 		<Divider>
-			<div class="w-64">
+			<div>
 				<Title title="Todo" />
 				{#each todoList.filter((t) => !t.isDone) as todo (todo.uuid)}
-					<Card {todo} />
+					<div animate:flip in:receive={{ key: todo.uuid }} out:send={{ key: todo.uuid }}>
+						<Card {todo} />
+					</div>
 				{/each}
 			</div>
-			<div class="w-64">
+			<div>
 				<Title title="Done" />
 				{#each todoList.filter((t) => t.isDone) as todo (todo.uuid)}
-					<Card {todo} />
+					<div animate:flip in:receive={{ key: todo.uuid }} out:send={{ key: todo.uuid }}>
+						<Card {todo} />
+					</div>
 				{/each}
 			</div>
 		</Divider>
