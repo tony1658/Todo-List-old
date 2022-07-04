@@ -1,6 +1,6 @@
 <button
 	aria-label="Delete todo button"
-	class="btn btn-outline btn-circle btn-sm flex items-center justify-center bg-white text-red-500 hover:bg-red-500"
+	class="btn btn-square btn-outline btn-sm  bg-white text-red-500 hover:bg-red-500"
 	on:click
 >
 	<svg class="h-5 w-5 fill-current " viewBox="0 0 20 20">
