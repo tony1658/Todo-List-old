@@ -4,7 +4,7 @@
 	import type { Todo } from '$models/todo';
 
 	import Card from '$components/Card.svelte';
-	import Container from '$components/Container.svelte';
+	import Container from '$layouts/Container.svelte';
 	import Divider from '$components/Divider.svelte';
 	import Header from '$components/Header.svelte';
 	import Input from '$components/Input.svelte';
