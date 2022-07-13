@@ -1,5 +1,5 @@
 <script lang="ts">
-	import DeleteIcon from './assets/DeleteIcon.svelte';
+	import DeleteIcon from '$assets/DeleteIcon.svelte';
 </script>
 
 <button
