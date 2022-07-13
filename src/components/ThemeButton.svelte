@@ -1,6 +1,6 @@
 <script lang="ts">
-	import MoonIcon from './icons/MoonIcon.svelte';
-	import SunIcon from './icons/SunIcon.svelte';
+	import MoonIcon from './assets/MoonIcon.svelte';
+	import SunIcon from './assets/SunIcon.svelte';
 
 	export let theme = 'light';
 </script>
