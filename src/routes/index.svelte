@@ -5,7 +5,6 @@
 
 	import Card from '$components/Card.svelte';
 	import Container from '$layouts/Container.svelte';
-	import Header from '$components/Header.svelte';
 	import Input from '$components/Input.svelte';
 	import InputGroup from '$components/InputGroup.svelte';
 	import NavBar from '$layouts/NavBar.svelte';
@@ -82,16 +81,10 @@
 	<SaveButton on:click={add} />
 </InputGroup>
 <Container>
-	<div>
-		<Header title="Todo" />
-		{#each todoList.filter((t) => !t.isDone) as todo (todo.uuid)}
-			<Card {todo} />
-		{/each}
-	</div>
-	<div>
-		<Header title="Done" />
-		{#each todoList.filter((t) => t.isDone) as todo (todo.uuid)}
-			<Card {todo} />
-		{/each}
-	</div>
+	{#each todoList.filter((t) => !t.isDone) as todo (todo.uuid)}
+		<Card {todo} />
+	{/each}
+	{#each todoList.filter((t) => t.isDone) as todo (todo.uuid)}
+		<Card {todo} />
+	{/each}
 </Container>
