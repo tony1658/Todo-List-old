@@ -5,7 +5,6 @@
 
 	import Card from '$components/Card.svelte';
 	import Container from '$layouts/Container.svelte';
-	import Divider from '$components/Divider.svelte';
 	import Header from '$components/Header.svelte';
 	import Input from '$components/Input.svelte';
 	import InputGroup from '$components/InputGroup.svelte';
@@ -83,18 +82,16 @@
 	<SaveButton on:click={add} />
 </InputGroup>
 <Container>
-	<Divider>
-		<div>
-			<Header title="Todo" />
-			{#each todoList.filter((t) => !t.isDone) as todo (todo.uuid)}
-				<Card {todo} />
-			{/each}
-		</div>
-		<div>
-			<Header title="Done" />
-			{#each todoList.filter((t) => t.isDone) as todo (todo.uuid)}
-				<Card {todo} />
-			{/each}
-		</div>
-	</Divider>
+	<div>
+		<Header title="Todo" />
+		{#each todoList.filter((t) => !t.isDone) as todo (todo.uuid)}
+			<Card {todo} />
+		{/each}
+	</div>
+	<div>
+		<Header title="Done" />
+		{#each todoList.filter((t) => t.isDone) as todo (todo.uuid)}
+			<Card {todo} />
+		{/each}
+	</div>
 </Container>
