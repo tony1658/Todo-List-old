@@ -4,9 +4,9 @@
 
 	import type { Todo } from '../models/todo';
 
-	import Checkbox from './checkbox.svelte';
-	import Textarea from './textarea.svelte';
-	import DeleteButton from './deleteButton.svelte';
+	import Checkbox from './Checkbox.svelte';
+	import Textarea from './Textarea.svelte';
+	import DeleteButton from './DeleteButton.svelte';
 
 	export let todo: Todo;
 	const mark: (todo: Todo, isDone: boolean) => void = getContext('mark');

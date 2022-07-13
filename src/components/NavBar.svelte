@@ -1,5 +1,5 @@
 <script>
-	import ThemeButton from './themeButton.svelte';
+	import ThemeButton from './ThemeButton.svelte';
 </script>
 
 <div class="navbar mb-3 justify-center bg-base-100 shadow-md">

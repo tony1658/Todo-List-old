@@ -3,14 +3,14 @@
 	import { browser } from '$app/env';
 	import type { Todo } from '../models/todo';
 
-	import Card from '../components/card.svelte';
-	import Container from '../components/container.svelte';
-	import Divider from '../components/divider.svelte';
-	import Header from '../components/header.svelte';
-	import Input from '../components/input.svelte';
-	import InputGroup from '../components/inputGroup.svelte';
-	import NavBar from '../components/navbar.svelte';
-	import SaveButton from '../components/saveButton.svelte';
+	import Card from '../components/Card.svelte';
+	import Container from '../components/Container.svelte';
+	import Divider from '../components/Divider.svelte';
+	import Header from '../components/Header.svelte';
+	import Input from '../components/Input.svelte';
+	import InputGroup from '../components/InputGroup.svelte';
+	import NavBar from '../components/NavBar.svelte';
+	import SaveButton from '../components/SaveButton.svelte';
 
 	let todoList: Todo[] = [];
 	let description = '';
