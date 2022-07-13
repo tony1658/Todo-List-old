@@ -9,7 +9,7 @@
 	import Header from '../components/Header.svelte';
 	import Input from '../components/Input.svelte';
 	import InputGroup from '../components/InputGroup.svelte';
-	import NavBar from '../components/NavBar.svelte';
+	import NavBar from '../layouts/NavBar.svelte';
 	import SaveButton from '../components/SaveButton.svelte';
 
 	let todoList: Todo[] = [];
