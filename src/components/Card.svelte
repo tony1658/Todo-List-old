@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
-	import { fade } from 'svelte/transition';
+	import { fly } from 'svelte/transition';
 
 	import type { Todo } from '$models/todo';
 
@@ -13,7 +13,7 @@
 	const remove: (todo: Todo) => void = getContext('remove');
 </script>
 
-<div class="card {todo.isDone ? 'bg-green-100' : 'bg-yellow-50'} mb-2 shadow-xl" in:fade out:fade>
+<div class="card {todo.isDone ? 'bg-green-100' : 'bg-yellow-50'} mb-2 shadow-xl" transition:fly={{ x: 100 }}>
 	<div class="card-body">
 		<div class="grid grid-cols-6">
 			<div class="col-end2 col-start-1 flex items-center ">
