@@ -2,7 +2,7 @@
 	import { getContext } from 'svelte';
 	import { fade } from 'svelte/transition';
 
-	import type { Todo } from '../models/todo';
+	import type { Todo } from '$models/todo';
 
 	import Checkbox from './Checkbox.svelte';
 	import Textarea from './Textarea.svelte';
