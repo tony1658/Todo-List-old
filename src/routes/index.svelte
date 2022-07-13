@@ -1,16 +1,16 @@
 <script lang="ts">
 	import { onMount, onDestroy, setContext } from 'svelte';
 	import { browser } from '$app/env';
-	import type { Todo } from '../models/todo';
+	import type { Todo } from '$models/todo';
 
-	import Card from '../components/Card.svelte';
-	import Container from '../components/Container.svelte';
-	import Divider from '../components/Divider.svelte';
-	import Header from '../components/Header.svelte';
-	import Input from '../components/Input.svelte';
-	import InputGroup from '../components/InputGroup.svelte';
-	import NavBar from '../layouts/NavBar.svelte';
-	import SaveButton from '../components/SaveButton.svelte';
+	import Card from '$components/Card.svelte';
+	import Container from '$components/Container.svelte';
+	import Divider from '$components/Divider.svelte';
+	import Header from '$components/Header.svelte';
+	import Input from '$components/Input.svelte';
+	import InputGroup from '$components/InputGroup.svelte';
+	import NavBar from '$layouts/NavBar.svelte';
+	import SaveButton from '$components/SaveButton.svelte';
 
 	let todoList: Todo[] = [];
 	let description = '';
