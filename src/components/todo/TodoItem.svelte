@@ -4,9 +4,9 @@
 
 	import type { Todo } from '$models/todo';
 
-	import Checkbox from './Checkbox.svelte';
-	import DeleteButton from './DeleteButton.svelte';
-	import EditButton from './EditButton.svelte';
+	import Checkbox from '$components/todo/Checkbox.svelte';
+	import DeleteButton from '$components/todo/DeleteButton.svelte';
+	import EditButton from '$components/todo/EditButton.svelte';
 
 	export let todo: Todo;
 	const mark: (todo: Todo, isDone: boolean) => void = getContext('mark');

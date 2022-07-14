@@ -10,7 +10,7 @@
 	import SaveButton from '$components/SaveButton.svelte';
 	import Tab from '$components/tab/Tab.svelte';
 	import TabGroup from '$components/tab/TabGroup.svelte';
-	import TodoItem from '$components/TodoItem.svelte';
+	import TodoItem from '$components/todo/TodoItem.svelte';
 
 	let description = '';
 	let todoList: Todo[] = [];
