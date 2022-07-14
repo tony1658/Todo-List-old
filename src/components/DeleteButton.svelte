@@ -4,7 +4,7 @@
 
 <button
 	aria-label="Delete todo button"
-	class="btn btn-outline btn-square btn-sm text-error hover:bg-error"
+	class="btn btn-ghost btn-square btn-xs text-base-200"
 	on:click
 >
 	<DeleteIcon />
