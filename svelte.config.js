@@ -14,11 +14,11 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		alias: {
-			$assets: 'src/assets',
-			$components: 'src/components',
-			$layouts: 'src/layouts',
-			$models: 'src/models',
-			$utils: 'src/utils'
+			$assets: 'src/lib/assets',
+			$components: 'src/lib/components',
+			$layouts: 'src/lib/layouts',
+			$models: 'src/lib/models',
+			$utils: 'src/lib/utils'
 		}
 	}
 };
