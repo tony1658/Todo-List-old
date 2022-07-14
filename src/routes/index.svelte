@@ -3,14 +3,14 @@
 	import { browser } from '$app/env';
 	import type { Todo } from '$models/todo';
 
-	import TodoItem from '$components/TodoItem.svelte';
 	import Container from '$layouts/Container.svelte';
 	import Input from '$components/Input.svelte';
 	import InputGroup from '$components/InputGroup.svelte';
 	import NavBar from '$layouts/NavBar.svelte';
 	import SaveButton from '$components/SaveButton.svelte';
-	import Tab from '$components/Tab.svelte';
-	import TabGroup from '$components/TabGroup.svelte';
+	import Tab from '$components/tab/Tab.svelte';
+	import TabGroup from '$components/tab/TabGroup.svelte';
+	import TodoItem from '$components/TodoItem.svelte';
 
 	let description = '';
 	let todoList: Todo[] = [];
