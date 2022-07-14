@@ -6,7 +6,7 @@
 <input
 	aria-label="Todo input"
 	placeholder="Todo..."
-	class="input input-bordered w-80"
+	class="input w-80 border-primary"
 	on:keyup={(e) => e.key === 'Enter' && add()}
 	bind:value={description}
 />
