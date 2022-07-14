@@ -3,7 +3,7 @@
 </script>
 
 <Container>
-	<div class="place input-group">
+	<div class="place input-group flex w-64 justify-center md:w-96">
 		<slot />
 	</div>
 </Container>
