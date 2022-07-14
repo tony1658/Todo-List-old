@@ -1,7 +1,9 @@
 <script lang="ts">
 	import { onMount, onDestroy, setContext } from 'svelte';
 	import { browser } from '$app/env';
+
 	import type { Todo } from '$models/todo';
+	import isValidInput from '$utils/isValidInput';
 
 	import Container from '$layouts/Container.svelte';
 	import Input from '$components/form/Input.svelte';
@@ -38,12 +40,6 @@
 			return;
 		}
 		localStorage.setItem('todoList', JSON.stringify(todoList));
-	}
-
-	function isValidInput(input: string): boolean {
-		// Checks for if the input only contains spaces
-		const regex = /^\s*$/;
-		return !regex.test(input);
 	}
 
 	function add() {
