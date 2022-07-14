@@ -84,7 +84,7 @@
 	<SaveButton on:click={add} />
 </InputGroup>
 <TabGroup>
-	<Tab active={!todoGroup} body="Todo" />
+	<Tab active={!todoGroup} body="Todo" on:click={() => (todoGroup = !todoGroup)} />
 	<Tab active={todoGroup} body="Done" on:click={() => (todoGroup = !todoGroup)} />
 </TabGroup>
 <Container>
