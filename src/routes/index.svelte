@@ -50,7 +50,7 @@
 		const todo: Todo = {
 			uuid: crypto.randomUUID(),
 			isDone: false,
-			description: description
+			description: description.trim()
 		};
 
 		todoList = [...todoList, todo];
