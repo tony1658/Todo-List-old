@@ -9,9 +9,12 @@
 	import InputGroup from '$components/InputGroup.svelte';
 	import NavBar from '$layouts/NavBar.svelte';
 	import SaveButton from '$components/SaveButton.svelte';
+	import Tab from '$components/Tab.svelte';
+	import TabGroup from '$components/TabGroup.svelte';
 
-	let todoList: Todo[] = [];
 	let description = '';
+	let todoList: Todo[] = [];
+	let todoGroup = false;
 
 	onMount(() => {
 		if (!browser) {
@@ -80,11 +83,12 @@
 	<Input {add} bind:description />
 	<SaveButton on:click={add} />
 </InputGroup>
+<TabGroup>
+	<Tab active={!todoGroup} body="Todo" />
+	<Tab active={todoGroup} body="Done" on:click={() => (todoGroup = !todoGroup)} />
+</TabGroup>
 <Container>
-	{#each todoList.filter((t) => !t.isDone) as todo (todo.uuid)}
-		<Card {todo} />
-	{/each}
-	{#each todoList.filter((t) => t.isDone) as todo (todo.uuid)}
+	{#each todoList.filter((t) => t.isDone === todoGroup) as todo (todo.uuid)}
 		<Card {todo} />
 	{/each}
 </Container>
