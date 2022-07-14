@@ -3,7 +3,7 @@
 	import { browser } from '$app/env';
 
 	import type { Todo } from '$models/todo';
-	import isValidInput from '$utils/isValidInput';
+	import isEmpty from '$utils/isEmpty';
 
 	import Container from '$layouts/Container.svelte';
 	import Input from '$components/form/Input.svelte';
@@ -43,7 +43,7 @@
 	}
 
 	function add() {
-		if (isValidInput(description)) {
+		if (isEmpty(description)) {
 			return;
 		}
 
