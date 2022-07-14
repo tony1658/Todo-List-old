@@ -43,7 +43,7 @@
 	}
 
 	function add() {
-		if (!description || !isValidInput(description)) {
+		if (isValidInput(description)) {
 			return;
 		}
 
