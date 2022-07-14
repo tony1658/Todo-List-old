@@ -40,18 +40,26 @@
 		localStorage.setItem('todoList', JSON.stringify(todoList));
 	}
 
-	function add() {
-		if (description || description.length > 0) {
-			const todo: Todo = {
-				uuid: crypto.randomUUID(),
-				isDone: false,
-				description: description
-			};
+	function isValidInput(input: string): boolean {
+		// Checks for if the input only contains spaces
+		const regex = /^\s*$/;
+		return !regex.test(input);
+	}
 
-			todoList = [...todoList, todo];
-			save();
-			description = '';
+	function add() {
+		if (!description || !isValidInput(description)) {
+			return;
 		}
+
+		const todo: Todo = {
+			uuid: crypto.randomUUID(),
+			isDone: false,
+			description: description
+		};
+
+		todoList = [...todoList, todo];
+		save();
+		description = '';
 	}
 
 	function remove(todo: Todo) {
