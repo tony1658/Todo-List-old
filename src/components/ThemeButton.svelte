@@ -5,7 +5,7 @@
 	export let theme = 'light';
 </script>
 
-<button class="btn btn-outline btn-square btn-sm">
+<button aria-label="Theme button" class="btn btn-outline btn-square btn-sm">
 	{#if theme === 'light'}
 		<MoonIcon />
 	{:else}
