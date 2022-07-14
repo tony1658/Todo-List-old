@@ -3,4 +3,8 @@
 	export let body: string;
 </script>
 
-<button class="tab {active ? 'tab-active ' : ''} normal-case" on:click>{body}</button>
+<button
+	class="tab {active ? 'tab-active ' : ''} font-semibold normal-case text-accent-content"
+	on:click
+	>{body}
+</button>
