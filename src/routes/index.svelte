@@ -3,7 +3,7 @@
 	import { browser } from '$app/env';
 	import type { Todo } from '$models/todo';
 
-	import Card from '$components/Card.svelte';
+	import TodoItem from '$components/TodoItem.svelte';
 	import Container from '$layouts/Container.svelte';
 	import Input from '$components/Input.svelte';
 	import InputGroup from '$components/InputGroup.svelte';
@@ -89,6 +89,6 @@
 </TabGroup>
 <Container>
 	{#each todoList.filter((t) => t.isDone === todoGroup) as todo (todo.uuid)}
-		<Card {todo} />
+		<TodoItem {todo} />
 	{/each}
 </Container>
