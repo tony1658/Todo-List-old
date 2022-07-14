@@ -5,7 +5,7 @@
 <input
 	aria-label="Todo checkbox"
 	type="checkbox"
-	class="checkbox checkbox-accent hover:bg-accent"
+	class="checkbox checkbox-sm bg-neutral-content"
 	bind:checked
 	on:change
 />
