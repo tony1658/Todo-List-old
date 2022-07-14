@@ -5,14 +5,13 @@
 	import type { Todo } from '$models/todo';
 	import isEmpty from '$utils/isEmpty';
 
-	import Container from '$layouts/Container.svelte';
 	import Input from '$components/form/Input.svelte';
 	import InputGroup from '$components/form/InputGroup.svelte';
 	import NavBar from '$layouts/NavBar.svelte';
 	import SaveButton from '$components/form/SaveButton.svelte';
 	import Tab from '$components/tab/Tab.svelte';
 	import TabGroup from '$components/tab/TabGroup.svelte';
-	import TodoItem from '$components/todo/TodoItem.svelte';
+	import TodoList from '$components/todo/TodoList.svelte';
 
 	let description = '';
 	let todoList: Todo[] = [];
@@ -91,8 +90,4 @@
 	<Tab active={!todoGroup} body="Todo" on:click={() => (todoGroup = !todoGroup)} />
 	<Tab active={todoGroup} body="Done" on:click={() => (todoGroup = !todoGroup)} />
 </TabGroup>
-<Container>
-	{#each todoList.filter((t) => t.isDone === todoGroup) as todo (todo.uuid)}
-		<TodoItem {todo} />
-	{/each}
-</Container>
+<TodoList {todoGroup} {todoList} />
