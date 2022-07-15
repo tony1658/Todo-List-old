@@ -5,7 +5,7 @@
 
 <input
 	aria-label="Todo input"
-	placeholder="Todo..."
+	placeholder="Enter task"
 	type="text"
 	class="input w-80 border-primary"
 	on:keyup={(e) => e.key === 'Enter' && add()}
