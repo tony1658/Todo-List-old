@@ -2,7 +2,7 @@
 	import ThemeButton from '$components/ThemeButton.svelte';
 </script>
 
-<div class="navbar mb-3 justify-center bg-base-100 shadow-md">
+<div class="navbar mb-2 justify-center bg-base-100 shadow-md">
 	<div class="navbar-start" />
 	<div class="navbar-center">
 		<p class="text-3xl">Todo List</p>
