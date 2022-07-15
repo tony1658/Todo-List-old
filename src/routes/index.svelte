@@ -55,8 +55,8 @@
 
 	function mark(todo: Todo, isDone: boolean) {
 		todo.isDone = isDone;
-		remove(todo);
-		todoList = todoList.concat(todo);
+		const todoIndex = todoList.findIndex((t) => t.uuid === todo.uuid);
+		todoList[todoIndex] = todo;
 		save();
 	}
 
