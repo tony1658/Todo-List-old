@@ -4,9 +4,10 @@
 
 	import type { Todo } from '$models/todo';
 
+	import Button from '$components/ui/Button.svelte';
 	import Checkbox from '$components/ui/Checkbox.svelte';
-	import DeleteButton from '$components/todo/DeleteButton.svelte';
-	import EditButton from '$components/todo/EditButton.svelte';
+	import DeleteIcon from '$assets/DeleteIcon.svelte';
+	import EditIcon from '$lib/assets/EditIcon.svelte';
 
 	export let todo: Todo;
 	const mark: (todo: Todo, isDone: boolean) => void = getContext('mark');
@@ -26,7 +27,11 @@
 		</p>
 	</div>
 	<div class="col-span-2 col-end-11 flex items-center justify-center gap-x-2">
-		<EditButton />
-		<DeleteButton on:click={() => remove(todo)} />
+		<Button ariaLabel="Edit todo">
+			<EditIcon />
+		</Button>
+		<Button ariaLabel="Delete todo" on:click={() => remove(todo)}>
+			<DeleteIcon />
+		</Button>
 	</div>
 </div>
