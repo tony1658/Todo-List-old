@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount, onDestroy, setContext } from 'svelte';
+	import { onMount, setContext } from 'svelte';
 	import { browser } from '$app/env';
 
 	import type { Todo } from '$models/todo';
@@ -23,15 +23,6 @@
 		}
 		const savedTodoList = localStorage.getItem('todoList');
 		todoList = savedTodoList !== null ? JSON.parse(savedTodoList) : [];
-	});
-
-	onDestroy(() => {
-		if (!browser) {
-			return;
-		}
-		if (localStorage.getItem('todoList') === null) {
-			localStorage.removeItem('todoList');
-		}
 	});
 
 	function save() {
