@@ -4,7 +4,7 @@
 
 	import type { Todo } from '$models/todo';
 
-	import Checkbox from '$components/todo/Checkbox.svelte';
+	import Checkbox from '$components/ui/Checkbox.svelte';
 	import DeleteButton from '$components/todo/DeleteButton.svelte';
 	import EditButton from '$components/todo/EditButton.svelte';
 
