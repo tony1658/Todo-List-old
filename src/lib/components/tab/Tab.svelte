@@ -1,10 +1,12 @@
 <script lang="ts">
-	export let active = false;
-	export let body: string;
+	export let selectedCategory: string;
+	export let name: string;
 </script>
 
 <button
-	class="tab {active ? 'tab-active ' : ''} font-semibold normal-case text-accent-content"
+	class="tab {selectedCategory === name
+		? 'tab-active '
+		: ''} font-semibold normal-case text-accent-content"
 	on:click
-	>{body}
+	>{name}
 </button>

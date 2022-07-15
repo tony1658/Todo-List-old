@@ -14,8 +14,8 @@
 	import TodoList from '$components/todo/TodoList.svelte';
 
 	let description = '';
+	let selectedCategory = 'Todo';
 	let todoList: Todo[] = [];
-	let todoGroup = false;
 
 	onMount(() => {
 		if (!browser) {
@@ -87,7 +87,8 @@
 	<SaveButton on:click={add} />
 </InputGroup>
 <TabGroup>
-	<Tab active={!todoGroup} body="Todo" on:click={() => (todoGroup = !todoGroup)} />
-	<Tab active={todoGroup} body="Done" on:click={() => (todoGroup = !todoGroup)} />
+	<Tab name="Todo" {selectedCategory} on:click={() => (selectedCategory = 'Todo')} />
+	<Tab name="Done" {selectedCategory} on:click={() => (selectedCategory = 'Done')} />
+	<Tab name="All" {selectedCategory} on:click={() => (selectedCategory = 'All')} />
 </TabGroup>
-<TodoList {todoGroup} {todoList} />
+<TodoList {selectedCategory} {todoList} />
