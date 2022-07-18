@@ -1,19 +1,21 @@
 <script lang="ts">
-	import { onMount, onDestroy, setContext } from 'svelte';
+	import { onMount, setContext } from 'svelte';
 	import { browser } from '$app/env';
-	import type { Todo } from '../models/todo';
 
-	import Card from '../components/card.svelte';
-	import Container from '../components/container.svelte';
-	import Divider from '../components/divider.svelte';
-	import Header from '../components/header.svelte';
-	import Input from '../components/input.svelte';
-	import InputGroup from '../components/inputGroup.svelte';
-	import NavBar from '../components/navbar.svelte';
-	import SaveButton from '../components/saveButton.svelte';
+	import type { Todo } from '$models/todo';
+	import isEmpty from '$utils/isEmpty';
 
-	let todoList: Todo[] = [];
+	import Input from '$components/form/Input.svelte';
+	import InputGroup from '$components/form/InputGroup.svelte';
+	import NavBar from '$layouts/NavBar.svelte';
+	import SaveButton from '$components/form/SaveButton.svelte';
+	import Tab from '$components/tab/Tab.svelte';
+	import TabGroup from '$components/tab/TabGroup.svelte';
+	import TodoList from '$components/todo/TodoList.svelte';
+
 	let description = '';
+	let selectedCategory = 'Todo';
+	let todoList: Todo[] = [];
 
 	onMount(() => {
 		if (!browser) {
@@ -21,15 +23,6 @@
 		}
 		const savedTodoList = localStorage.getItem('todoList');
 		todoList = savedTodoList !== null ? JSON.parse(savedTodoList) : [];
-	});
-
-	onDestroy(() => {
-		if (!browser) {
-			return;
-		}
-		if (localStorage.getItem('todoList') === null) {
-			localStorage.removeItem('todoList');
-		}
 	});
 
 	function save() {
@@ -40,17 +33,19 @@
 	}
 
 	function add() {
-		if (description || description.length > 0) {
-			const todo: Todo = {
-				uuid: crypto.randomUUID(),
-				isDone: false,
-				description: description
-			};
-
-			todoList = [...todoList, todo];
-			save();
-			description = '';
+		if (isEmpty(description)) {
+			return;
 		}
+
+		const todo: Todo = {
+			uuid: crypto.randomUUID(),
+			isDone: false,
+			description: description.trim()
+		};
+
+		todoList = [...todoList, todo];
+		save();
+		description = '';
 	}
 
 	function remove(todo: Todo) {
@@ -60,8 +55,8 @@
 
 	function mark(todo: Todo, isDone: boolean) {
 		todo.isDone = isDone;
-		remove(todo);
-		todoList = todoList.concat(todo);
+		const todoIndex = todoList.findIndex((t) => t.uuid === todo.uuid);
+		todoList[todoIndex] = todo;
 		save();
 	}
 
@@ -78,23 +73,13 @@
 </svelte:head>
 
 <NavBar />
-<Container>
-	<InputGroup>
-		<Input {add} bind:description />
-		<SaveButton on:click={add} />
-	</InputGroup>
-	<Divider>
-		<div>
-			<Header title="Todo" />
-			{#each todoList.filter((t) => !t.isDone) as todo (todo.uuid)}
-				<Card {todo} />
-			{/each}
-		</div>
-		<div>
-			<Header title="Done" />
-			{#each todoList.filter((t) => t.isDone) as todo (todo.uuid)}
-				<Card {todo} />
-			{/each}
-		</div>
-	</Divider>
-</Container>
+<InputGroup>
+	<Input {add} bind:description />
+	<SaveButton on:click={add} />
+</InputGroup>
+<TabGroup>
+	<Tab name="Todo" {selectedCategory} on:click={() => (selectedCategory = 'Todo')} />
+	<Tab name="Done" {selectedCategory} on:click={() => (selectedCategory = 'Done')} />
+	<Tab name="All" {selectedCategory} on:click={() => (selectedCategory = 'All')} />
+</TabGroup>
+<TodoList {selectedCategory} {todoList} />
